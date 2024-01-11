@@ -36,3 +36,61 @@
     transform: rotate(360deg);
   }
 }
+
+
+
+.container-info-lote{
+  display: grid;
+  
+  grid-template-areas: "p p p" "l l e";
+  width: 100vw;
+  gap: 25px;
+  margin: 20px;
+}
+
+.info-produto{
+  display: flex;
+  align-items: center;
+  background-image: url('./assets/img/Default_brown_and_green_rainforest_flat_minimal_illustration_1_21b45312-ccf3-486b-859f-62e4ec2263d9_1\ 1.png');
+  background-color: red;
+  grid-area: p;
+  border-radius: 25px;
+}
+.info-produto h1 {
+  margin-left: 20px;
+}
+.info-produto img {
+  width: 100px;
+  border-radius: 20px;
+  margin-left: 15px;
+}
+
+.info-locais{
+  display: flex;
+  flex-direction: column;
+  background-image: url('./assets/img/background-oleo-verde.svg');
+  background-position: center;
+  background-size: cover;
+  grid-area: l;
+  border-radius: 25px;
+}
+.info-locais img{
+  width: 100%;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 25px;
+}
+
+.info-extrativistas{
+  display: flex;
+  flex-direction: column;
+  background-color: blue;
+  grid-area: e;
+  background-image: url('./assets/img/bg-oleo-red.svg');
+  border-radius: 25px;
+}
+.info-extrativistas img{
+  align-self: center;
+  height: 350px;
+  border-radius: 25px;
+}
