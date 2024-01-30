@@ -5,11 +5,14 @@ import axios from "axios";
 import MapComponent from "../../Components/MapComponent";
 
 import '../../App.css';
+import { formatarData } from "../../js/valueFormatter";
 
 const Info = () => {
     const url = new URL(window.location.href);
-    const id = url.searchParams.get("id");
-    const name = url.searchParams.get("name");
+    //const id = url.searchParams.get("id");
+    const id = 2
+    //const name = url.searchParams.get("name");
+    const name = 'asaga'
 
     const config = [
         { img: 'asaga', baseURL: 'https://api.plataformainatu.com.br:4001/' },
@@ -22,6 +25,9 @@ const Info = () => {
     const [produto, setProduto] = useState('');
     const [locais, setLocais] = useState([]);
     const [extrativistas, setExtrativistas] = useState([]);
+    const [inicioProd, setInicio] = useState('');
+    const [fimProd, setFim] = useState('');
+    const [colaboradores, setColaboradores] = useState('');
 
     const position = [-7.1944, -59.8961];
     const points = [
@@ -39,8 +45,9 @@ const Info = () => {
 
         httpInstance.get(`loteFinal/${id}`).then(res => {
             setProduto(res.data.produto);
-            setLocais(res.data.local.split(','));
-            setExtrativistas(res.data.extrativistas.split(','));
+            setFim(formatarData(res.data.createdAt));
+            setLocais(res.data.local.split('|'));
+            setExtrativistas(res.data.extrativistas.split('|'));
         }).catch(error => {
             alert(`Error: ${error}`);
         });
@@ -52,6 +59,8 @@ const Info = () => {
                 <div className="info-produto">
                     <h1>{produto}</h1>
                     <img src={iconsInatuPublic[produto]} alt={produto} />
+                    <h1>Lote: {id}</h1>
+                    <h1>Processado em: {fimProd}</h1>
                 </div>
 
                 <div className="info-locais">
