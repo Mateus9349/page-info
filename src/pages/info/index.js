@@ -9,10 +9,10 @@ import { formatarData } from "../../js/valueFormatter";
 
 const Info = () => {
     const url = new URL(window.location.href);
-    //const id = url.searchParams.get("id");
-    const id = 2
-    //const name = url.searchParams.get("name");
-    const name = 'asaga'
+    const id = url.searchParams.get("id");
+    //const id = 2
+    const name = url.searchParams.get("name");
+    //const name = 'asaga'
 
     const config = [
         { img: 'asaga', baseURL: 'https://api.plataformainatu.com.br:4001/' },
