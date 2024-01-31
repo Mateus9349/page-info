@@ -46,11 +46,16 @@ const Info = () => {
         httpInstance.get(`loteFinal/${id}`).then(res => {
             setProduto(res.data.produto);
             setFim(formatarData(res.data.createdAt));
-            setLocais(res.data.local.split('|'));
-            setExtrativistas(res.data.extrativistas.split('|'));
+
+            // Verifica se res.data.local existe antes de chamar split
+            setLocais(res.data.local ? res.data.local.split('|') : []);
+
+            // Verifica se res.data.extrativistas existe antes de chamar split
+            setExtrativistas(res.data.extrativistas ? res.data.extrativistas.split('|') : []);
         }).catch(error => {
             alert(`Error: ${error}`);
         });
+
     }, [id, name]);
 
     return (
