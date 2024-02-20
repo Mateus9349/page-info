@@ -38,18 +38,61 @@
 }
 
 
+@import url('https://fonts.googleapis.com/css2?family=Anta&family=Josefin+Sans:ital,wght@1,100;1,500&family=Kode+Mono:wght@400..700&family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+
+.titleDefault1{
+  font-family: "Playfair Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  text-align: center;
+  font-size: 45px;
+  color: #e9e9e1;
+}
+.titleDefault1 span{
+  font-weight: bold;
+  color: #11110b;
+  font-size: 50px;
+  padding: 5px;
+}
+
+.titleDefault2{
+  font-family: "Playfair Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  text-align: center;
+  font-size: 25px;
+  color: #11110b;
+}
+
+.textDefault{
+  font-family: "Playfair Display", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: weight;
+  font-style: normal;
+  font-size: 20px;
+  color: #e9e9e1;
+}
 
 .container-info-lote{
   display: grid;
-  
-  grid-template-areas: "p p p" "l l e";
-  width: 100vw;
+  grid-template-areas: "p p p" "a a a" "l l e";
   gap: 25px;
   margin: 20px;
 }
 
+.info-assoc{
+  grid-area: a;
+  margin: auto;
+  max-width: 80%;
+  text-align: justify;
+}
+
 .info-produto{
   display: flex;
+  justify-content: space-around;
   align-items: center;
   background-image: url('./assets/img/Default_brown_and_green_rainforest_flat_minimal_illustration_1_21b45312-ccf3-486b-859f-62e4ec2263d9_1\ 1.png');
   background-color: red;
@@ -60,7 +103,7 @@
   margin-left: 20px;
 }
 .info-produto img {
-  width: 100px;
+  width: 150px;
   border-radius: 20px;
   margin-left: 15px;
 }
@@ -68,7 +111,7 @@
 .info-locais{
   display: flex;
   flex-direction: column;
-  background-image: url('./assets/img/background-oleo-verde.svg');
+  background-color: #d4d4d3;
   background-position: center;
   background-size: cover;
   grid-area: l;
@@ -84,9 +127,7 @@
 .info-extrativistas{
   display: flex;
   flex-direction: column;
-  background-color: blue;
   grid-area: e;
-  background-image: url('./assets/img/bg-oleo-red.svg');
   border-radius: 25px;
 }
 .info-extrativistas img{

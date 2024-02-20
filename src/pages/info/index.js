@@ -6,11 +6,12 @@ import MapComponent from "../../Components/MapComponent";
 
 import '../../App.css';
 import { formatarData } from "../../js/valueFormatter";
+import { associacoes } from "../../js/infoAssociacoes";
 
 const Info = () => {
     const url = new URL(window.location.href);
     const id = url.searchParams.get("id");
-    //const id = 2
+    //const id = 1
     const name = url.searchParams.get("name");
     //const name = 'asaga'
 
@@ -28,6 +29,7 @@ const Info = () => {
     const [inicioProd, setInicio] = useState('');
     const [fimProd, setFim] = useState('');
     const [colaboradores, setColaboradores] = useState('');
+    const [assoc, setAssoc] = useState({});
 
     const position = [-7.1944, -59.8961];
     const points = [
@@ -36,6 +38,9 @@ const Info = () => {
     ];
 
     useEffect(() => {
+        const infoAsoc = associacoes.find(item => item.nome === name.toUpperCase());
+        setAssoc(infoAsoc);
+
         const itemConfig = config.find(item => item.img === name);
         if (!itemConfig) return;
 
@@ -62,25 +67,35 @@ const Info = () => {
         <>
             <div className="container-info-lote">
                 <div className="info-produto">
-                    <h1>{produto}</h1>
                     <img src={iconsInatuPublic[produto]} alt={produto} />
-                    <h1>Lote: {id}</h1>
-                    <h1>Processado em: {fimProd}</h1>
+                    <div>
+                        <h1 className="titleDefault2"> Óleo de {produto}</h1>
+                        <h1 className="titleDefault2">Processado no dia: {fimProd}</h1>
+                        <h1 className="titleDefault2">Lote número: {id}</h1>
+                    </div>
+                </div>
+
+                <div className="info-assoc">
+                    <h1 className="titleDefault1">Associação Produtora:  <span>{assoc.nome}</span></h1>
+                    <img src={assoc.imagem} />
+                    <p className="textDefault">
+                        {assoc.texto}
+                    </p>
                 </div>
 
                 <div className="info-locais">
+                    <h1 className="titleDefault2">Locais de coleta</h1>
                     <MapComponent position={position} points={points} />
-                    <h1>Locais de coleta:</h1>
                     {locais.map(item => (
-                        <h1 key={item}>{item}</h1>
+                        <h1 className="titleDefault2" key={item}>{item}</h1>
                     ))}
                 </div>
 
                 <div className="info-extrativistas">
+                    <h1 className="titleDefault1">Extrativistas</h1>
                     <img src={imgExtrativista} />
-                    <h1>Extrativistas:</h1>
                     {extrativistas.map(item => (
-                        <h1 key={item}>{item}</h1>
+                        <h2 className="textDefault" key={item}>{item}</h2>
                     ))}
                 </div>
             </div>
