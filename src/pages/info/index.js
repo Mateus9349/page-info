@@ -13,7 +13,7 @@ const Info = () => {
     const id = url.searchParams.get("id");
     //const id = 1
     const name = url.searchParams.get("name");
-    //const name = 'asaga'
+    //const name = 'rds'
 
     const config = [
         { img: 'asaga', baseURL: 'https://api.plataformainatu.com.br:4001/' },
